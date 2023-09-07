@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Presentation.Dtos
+namespace Core.Dtos
 {
     public class CreateTeacherDto
     {

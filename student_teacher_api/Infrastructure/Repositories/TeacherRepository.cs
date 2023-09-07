@@ -30,7 +30,7 @@ namespace Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateStudent(Teacher student)
+        public Task<bool> UpdateTeacher(string id, Teacher teacher)
         {
             throw new NotImplementedException();
         }
