@@ -43,7 +43,7 @@ namespace Infrastructure.Repositories
             return await _context.Students.FindAsync(id);
         }
 
-        public Task<bool> UpdateStudent(Student student)
+        public Task<bool> UpdateStudent(string id, Student student)
         {
             throw new NotImplementedException();
         }

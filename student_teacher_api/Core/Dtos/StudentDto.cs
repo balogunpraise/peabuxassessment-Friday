@@ -20,6 +20,16 @@ namespace Core.Dtos
         public string StudentNumber { get; set; }
     }
 
+    public class UpdateStudentDto 
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string NationalIdNumber { get; set; }
+        public DateTime DOB { get; set; }
+        public string StudentNumber { get; set; }
+    }
+
+
     public class StudentResponseDto
     {
         public string Id { get; set; }

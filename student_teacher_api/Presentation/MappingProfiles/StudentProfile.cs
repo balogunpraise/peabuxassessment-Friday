@@ -10,6 +10,7 @@ namespace Presentation.MappingProfiles
         {
             CreateMap<Student, StudentResponseDto>();
             CreateMap<CreateStudentDto, Student>();
+            CreateMap<UpdateStudentDto, Student>();
         }
     }
 }

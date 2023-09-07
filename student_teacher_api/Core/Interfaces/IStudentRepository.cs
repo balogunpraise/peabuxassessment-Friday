@@ -13,6 +13,6 @@ namespace Core.Interfaces
         Task<Student> GetStudentById(string id);
         Task<IEnumerable<Student>> GetAllStudents();
         Task<bool> DeleteStudent(string id);
-        Task<bool> UpdateStudent(Student student);
+        Task<bool> UpdateStudent(string id, Student student);
     }
 }
