@@ -72,7 +72,7 @@ namespace Presentation.Controllers
         }
 
 
-        [HttpGet("student/{id}")]
+        [HttpGet("student")]
         [ProducesResponseType(typeof(ApiResponse<IEnumerable<StudentResponseDto>>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)]
         public async Task<ActionResult> GetStudents()

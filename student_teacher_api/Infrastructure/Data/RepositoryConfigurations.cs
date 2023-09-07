@@ -9,7 +9,7 @@ namespace Infrastructure.Data
     {
         public void Configure(EntityTypeBuilder<Student> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable(nameof(Student));
         }
     }
 
@@ -17,7 +17,7 @@ namespace Infrastructure.Data
     {
         public void Configure(EntityTypeBuilder<Teacher> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable(nameof(Teacher));
         }
     }
 }

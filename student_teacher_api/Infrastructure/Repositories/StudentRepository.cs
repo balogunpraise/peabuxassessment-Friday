@@ -5,8 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
@@ -28,9 +26,16 @@ namespace Infrastructure.Repositories
             return succeeded;
         }
 
-        public Task<bool> DeleteStudent(string id)
+        public async Task<bool> DeleteStudent(string id)
         {
-            throw new NotImplementedException();
+            var studentToDelete = await GetStudentById(id);
+            if (studentToDelete != null)
+            {
+                _context.Students.Remove(studentToDelete);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public async Task<IEnumerable<Student>> GetAllStudents()
@@ -43,9 +48,20 @@ namespace Infrastructure.Repositories
             return await _context.Students.FindAsync(id);
         }
 
-        public Task<bool> UpdateStudent(string id, Student student)
+        public async Task<bool> UpdateStudent(string id, Student student)
         {
-            throw new NotImplementedException();
+            var studentToUpdate = await GetStudentById(id);
+            if (studentToUpdate != null)
+            {
+                studentToUpdate.Name = student.Name ?? studentToUpdate.Name;
+                studentToUpdate.Surname = student.Surname ?? studentToUpdate.Surname;
+                studentToUpdate.StudentNumber = student.StudentNumber ?? studentToUpdate.StudentNumber;
+                studentToUpdate.NationalIdNumber = student.NationalIdNumber ?? studentToUpdate.NationalIdNumber;
+                studentToUpdate.UpdatedAt = DateTimeOffset.UtcNow;
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Student
+    public class Student : BaseEntity
     {
         public string Name { get; set; }
         public string Surname { get; set; }
