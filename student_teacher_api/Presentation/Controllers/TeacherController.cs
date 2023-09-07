@@ -17,6 +17,7 @@ namespace Presentation.Controllers
             _mapper = mapper;
         }
 
+        #region Command
 
         [HttpPost("teacher")]
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
@@ -30,6 +31,31 @@ namespace Presentation.Controllers
         }
 
 
+        [HttpPut("teacher/{id}")]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult> UpdateTeacher(string id, UpdateTeacherDto teacherDto)
+        {
+            var teacher = _mapper.Map<UpdateTeacherDto, Teacher>(teacherDto);
+            var response = await _repository.UpdateTeacher(id, teacher);
+            return response ? Ok(new ApiResponse(200, "Teacher updated")) : BadRequest(new ApiErrorResponse(400));
+        }
+
+
+        [HttpDelete("teacher/{id}")]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult> DeleteTeacher(string id)
+        {
+            var response = await _repository.DeleteTeacher(id);
+            return response ? Ok(new ApiResponse(200, "Teacher Deleted")) : BadRequest(new ApiErrorResponse(400));
+        }
+
+
+        #endregion
+
+
+        #region Query
 
         [HttpGet("teacher/{id}")]
         [ProducesResponseType(typeof(ApiResponse<Teacher>), StatusCodes.Status200OK)]
@@ -46,11 +72,16 @@ namespace Presentation.Controllers
         }
 
 
-
-        [HttpPut("teacher/{id}")]
-        public async Task<ActionResult> UpdateTeacher(string id, CreateTeacherDto teacherDto)
+        [HttpGet("teacher")]
+        [ProducesResponseType(typeof(ApiResponse<IEnumerable<Teacher>>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)]
+        public async Task<ActionResult> GetTeachers()
         {
-
+            var teachers = await _repository.GetAllTeachers();
+            var response = _mapper.Map<IEnumerable<Teacher>, IEnumerable<TeacherResponseDto>>(teachers);
+            return Ok(new ApiResponse<IEnumerable<TeacherResponseDto>>(response, 200));
         }
+
+        #endregion
     }
 }
