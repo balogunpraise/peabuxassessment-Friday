@@ -1,15 +1,15 @@
 import React from 'react'
-import './teacherform.css'
+import './studentfom.css'
 import SubmitButton from '../submit-button/SubmitButton'
 
-const TeacherForm = ({isopend}) => {
+const StudentForm = ({isopend}) => {
   const toggle = isopend ? "open" : "close"
   return (
     <div className={`teacher-form ${toggle}`}>
       <form>
         <div className="form first">
           <div className="details personal">
-            <span className="title">Teacher Details</span>
+            <span className="title">Student Details</span>
 
             <div className="fields">
               <div className="input-fields">
@@ -26,28 +26,13 @@ const TeacherForm = ({isopend}) => {
               </div>
 
               <div className="input-fields">
-                <label style={{color: "black"}}>Teacher Number</label>
+                <label style={{color: "black"}}>Student Number</label>
                 <input type='text' placeholder='Enter national identity number' required/>
               </div>
 
-              
-              <div className="input-fields">
-                <label style={{color: "black"}}>Title</label>
-                <select className='select-input'>
-                  <option>Mr</option>
-                  <option>Mrs</option>
-                  <option>Miss</option>
-                  <option>Dr</option>
-                  <option>Prof</option>
-                </select> 
-              </div>
               <div className="input-fields">
                 <label style={{color: "black"}}>Date of Birth</label>
                 <input type='date' placeholder='Date product was recieved' required/>
-              </div>
-              <div className="input-fields">
-                <label style={{color: "black"}}>Salary</label>
-                <input type='number' placeholder='Enter Salary' required/>
               </div>
             </div>
             <SubmitButton />
@@ -58,4 +43,4 @@ const TeacherForm = ({isopend}) => {
   )
 }
 
-export default TeacherForm
+export default StudentForm
