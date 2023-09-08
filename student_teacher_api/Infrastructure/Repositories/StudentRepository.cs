@@ -19,9 +19,16 @@ namespace Infrastructure.Repositories
         }
         public async Task<bool> AddStudent(Student student)
         {
-            await _context.AddAsync(student);
-            var succeeded = _context.SaveChangesAsync().Result == 1;
-            return succeeded;
+            try
+            {
+                await _context.AddAsync(student);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
         }
 
         public async Task<bool> DeleteStudent(string id)

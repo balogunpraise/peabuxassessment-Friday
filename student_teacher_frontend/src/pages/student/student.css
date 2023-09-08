@@ -13,3 +13,12 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.card-container{
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+.card-container::-webkit-scrollbar{
+    display: none;
+}

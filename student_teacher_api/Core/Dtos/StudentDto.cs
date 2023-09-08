@@ -5,11 +5,9 @@ namespace Core.Dtos
     public class CreateStudentDto
     {
         [Required(ErrorMessage = "The name field is a required field")]
-        [RegularExpression("/^[a-zA-Z]+$/g")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Surname field is a required field")]
-        [RegularExpression("/^[a-zA-Z]+$/g")]
         public string Surname { get; set; }
 
         [Required(ErrorMessage = "National ID is a required field")]
