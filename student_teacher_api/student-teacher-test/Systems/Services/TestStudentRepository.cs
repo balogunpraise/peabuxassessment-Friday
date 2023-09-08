@@ -53,6 +53,24 @@ namespace student_teacher_test.Systems.Services
             _context.Students.Count().Should().Be(expected);
         }
 
+
+        [Theory]
+        [InlineData("3564-ace5637")]
+        public async Task GetStudentById_ShouldProvideTheStudentIfAvailable(string id)
+        {
+            //Arrange
+            _context.Students.AddRange(StudentMockData.GetAllStudents());
+            _context.SaveChanges();
+            var newStudent = StudentMockData.AddStudentEntity();
+            var sut = new StudentRepository(_context);
+
+            //Act
+            var student = await sut.GetStudentById(id);
+
+            //Assert
+            student.Should().NotBeNull();
+        }
+
         public void Dispose()
         {
             _context.Database.EnsureDeleted();
