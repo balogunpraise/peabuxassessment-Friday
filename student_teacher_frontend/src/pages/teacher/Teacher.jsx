@@ -33,17 +33,24 @@ const Teacher = () => {
 				<CustomButton title='Add new teacher' action={handlerSubmit} />
 			</div>
 			<TeacherForm isopend={formOpened} />
-			{returnData.map((item) => (
-				<Card
-					key={item.id}
-					id={item.id}
-					name={item.name}
-					surname={item.surname}
-					identity={item.nationalIdNumber}
-					number={item.teacherNumber}
-					dob={item.dob}
-				/>
-			))}
+			{returnData.length === 0 ? (
+				<h2 style={{ color: 'teal', textAlign: 'center', marginTop: '30px' }}>
+					No teachers yet
+				</h2>
+			) : (
+				returnData.map((item) => (
+					<Card
+						key={item.id}
+						id={item.id}
+						name={item.name}
+						surname={item.surname}
+						identity={item.nationalIdNumber}
+						number={item.teacherNumber}
+						dob={item.dob}
+						route={GET_TEACHER}
+					/>
+				))
+			)}
 		</div>
 	)
 }

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
@@ -33,7 +34,7 @@ namespace Infrastructure.Repositories
 
         public async Task<bool> DeleteStudent(string id)
         {
-            var studentToDelete = await GetStudentById(id);
+            var studentToDelete = await _context.Students.Where(x => x.Id == id).SingleOrDefaultAsync();
             if (studentToDelete != null)
             {
                 _context.Students.Remove(studentToDelete);

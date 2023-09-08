@@ -10,14 +10,18 @@ const TeacherForm = ({ isopend }) => {
 	const [surname, setSurname] = useState('')
 	const [nationalIdNumber, setNationalIdNumber] = useState('')
 	const [teacherNumber, setTeacherNumber] = useState('')
-	const [title, setTitle] = useState('')
+	const [title, setTitle] = useState(0)
 	const [salary, setSalary] = useState(0)
 	const [dobstring, setDobstring] = useState('')
 	const dob = new Date(dobstring)
 
+	const handleSelected = (e) => {
+		setTitle(e.target.value)
+	}
+
 	const handleSubmitTeacher = async (e) => {
+		console.log(title)
 		//e.preventDefault()
-		console.log(name, surname)
 		try {
 			const response = await axios.post(
 				POST_TEACHER_URL,
@@ -37,10 +41,6 @@ const TeacherForm = ({ isopend }) => {
 			)
 			console.log(JSON.stringify(response))
 		} catch (err) {}
-	}
-
-	const handleSelected = (e) => {
-		setTitle(e.target.value)
 	}
 
 	const titleOpt = [
@@ -100,7 +100,11 @@ const TeacherForm = ({ isopend }) => {
 
 							<div className='input-fields'>
 								<label style={{ color: 'black' }}>Title</label>
-								<select onChange={handleSelected} className='select-input'>
+								<select
+									value={title}
+									onChange={handleSelected}
+									className='select-input'
+								>
 									{titleOpt.map((opt) => (
 										<option key={opt.value} value={opt.value}>
 											{opt.label}

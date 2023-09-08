@@ -13,7 +13,8 @@ namespace Core.Dtos
         [Required]
         public string NationalIdNumber { get; set; }
 
-        public string Title { get; set; }
+        [Required]
+        public int Title { get; set; }
 
         [Required]
         public DateTime DOB { get; set; }

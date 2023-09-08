@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Core.Dtos;
 using Core.Entities;
+using Core.Enums;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.Wrappers;
@@ -25,6 +26,7 @@ namespace Presentation.Controllers
         public async Task<ActionResult> AddTeacher(CreateTeacherDto teacherDto)
         {
             var teacher = _mapper.Map<CreateTeacherDto, Teacher>(teacherDto);
+            teacher.Title = Enum.GetValues<TitleEnum>().First(x => (int)x == teacherDto.Title).ToString();
             var succeeded = await _repository.AddTeacher(teacher);
             return succeeded ? Ok(new ApiResponse(200, "Adding teacher was successful")) 
                 : BadRequest(new ApiErrorResponse(400));

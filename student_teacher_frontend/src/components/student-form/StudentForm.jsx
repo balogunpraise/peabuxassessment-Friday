@@ -18,7 +18,7 @@ const StudentForm = ({isopend}) => {
   //
 
   const handleSubmitStudent = async (e) =>{
-    // e.preventDefault()
+    //e.preventDefault()
     console.log(name, surname)
     try{
       const response = await axios.post(POST_STUDENT_URL, 
