@@ -12,10 +12,13 @@
 }
 
 .open{
-    display: block;
+     visibility: visible;
+  opacity: 1;
 }
 .close{
-    display: none;
+    visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .teacher-form header{

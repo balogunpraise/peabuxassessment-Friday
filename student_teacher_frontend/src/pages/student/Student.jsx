@@ -17,7 +17,6 @@ const Student = () => {
     try{
       const response = await axios.get(GET_STUDENT);
       setData(response.data.data);
-      console.log(response.data)
     }
     catch(err){
        console.log(err)
