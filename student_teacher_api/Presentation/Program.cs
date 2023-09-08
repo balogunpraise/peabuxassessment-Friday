@@ -18,7 +18,15 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("ApplicationConnection"));
 });
-
+builder.Services.AddCors(option =>
+{
+    option.AddPolicy("CorsPolicy", builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,6 +38,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("CorsPolicy");
 app.UseAuthorization();
 
 app.MapControllers();

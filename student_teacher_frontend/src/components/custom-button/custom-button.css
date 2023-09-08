@@ -1,0 +1,12 @@
+.custom-button{
+    padding: 10px 10px;
+    background: teal;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+    transition: all ease .5s;
+}
+
+.custom-button:hover{
+    background: rgb(6, 161, 161);
+}
