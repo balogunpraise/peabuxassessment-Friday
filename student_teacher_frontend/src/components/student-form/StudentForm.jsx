@@ -30,6 +30,16 @@ const StudentForm = ({isopend}) => {
                 <input type='text' placeholder='Enter national identity number' required/>
               </div>
 
+
+              <div className="input-fields">
+                <label style={{color: "black"}}>Gender</label>
+                <select className='select-input'>
+                  <option>Male</option>
+                  <option>Femele</option>
+                  <option>Others</option>
+                </select> 
+              </div>
+
               <div className="input-fields">
                 <label style={{color: "black"}}>Date of Birth</label>
                 <input type='date' placeholder='Date product was recieved' required/>
