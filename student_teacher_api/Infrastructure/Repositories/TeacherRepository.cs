@@ -2,7 +2,6 @@
 using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,12 +11,10 @@ namespace Infrastructure.Repositories
     public class TeacherRepository : ITeacherRepository
     {
         private readonly RepositoryContext _context;
-        private readonly ILogger<TeacherRepository> _logger;
 
-        public TeacherRepository(RepositoryContext context, ILogger<TeacherRepository> logger)
+        public TeacherRepository(RepositoryContext context)
         {
             _context = context;
-            _logger = logger;
         }
 
 
@@ -31,7 +28,6 @@ namespace Infrastructure.Repositories
             }
             catch(Exception ex)
             {
-                _logger.LogError(ex.Message);
                 return false;
             }  
         }

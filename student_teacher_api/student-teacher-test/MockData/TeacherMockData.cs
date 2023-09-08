@@ -1,70 +1,60 @@
-﻿using Core.Dtos;
-using Core.Entities;
+﻿using Core.Entities;
 
 namespace student_teacher_test.MockData
 {
-    public class StudentMockData
+    public class TeacherMockData
     {
-        public static IEnumerable<Student> GetAllStudents()
+        public static IEnumerable<Teacher> GetTeachers()
         {
-            return new List<Student>() 
+            return new List<Teacher>()
             {
-                new Student
+                new Teacher
                 {
                     Id = "3564-ace5637",
                     Name = "Test Name",
                     Surname = "Test Surname",
-                    StudentNumber = "09487637",
+                    TeacherNumber = "09487637",
                     NationalIdNumber = "RA12345",
+                    Salary = 2000,
                     DOB = new DateTime()
                 },
-                new Student
+                new Teacher
                 {
                     Id = "3564-ace5637-45ff",
                     Name = "Test2 Name",
                     Surname = "Test2 Surname",
-                    StudentNumber = "09487637",
+                    TeacherNumber = "09487637",
                     NationalIdNumber = "RA12645",
+                    Salary = 4000,
                     DOB = new DateTime()
                 }
             };
 
         }
 
-        public static Student GetStudentById(string Id)
+        public static Teacher GetTeacherById(string Id)
         {
-            return new Student()
+            return new Teacher()
             {
                 Id = "3564-ace5637",
                 Name = "Test Name",
                 Surname = "Test Surname",
-                StudentNumber = "09487637",
+                TeacherNumber = "09487637",
                 NationalIdNumber = "RA12345",
+                Salary = 4000,
                 DOB = new DateTime()
             };
         }
 
-        public static Student AddStudentEntity()
+        public static Teacher AddTeacherEntity()
         {
-            return new Student()
+            return new Teacher()
             {
                 Name = "Test3 Name",
                 Surname = "Test3 Surname",
-                StudentNumber = "09487637",
+                TeacherNumber = "09487637",
                 NationalIdNumber = "RA12645",
-                DOB = new DateTime()
-            };
-        }
-
-
-        public static CreateStudentDto AddCreateStudent()
-        {
-            return new CreateStudentDto
-            {
-                Name = "Test3 Name",
-                Surname = "Test3 Surname",
-                StudentNumber = "09487637",
-                NationalIdNumber = "RA12645",
+                Salary = 3000,
                 DOB = new DateTime()
             };
         }

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Core.Dtos;
+using Core.Entities;
 using Core.Interfaces;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
@@ -57,5 +59,21 @@ namespace student_teacher_test.Systems.Controllers
             result.GetType().Should().Be(typeof(OkObjectResult));
             (result as OkObjectResult).StatusCode.Should().Be(200);
         }
+
+        [Fact]
+        public async Task CreateStudent_ShouldCallAddStudentOnce()
+        {
+            //Arrange
+            var studentRepo = new Mock<IStudentRepository>();
+            var student = StudentMockData.AddCreateStudent();
+            var sut = new StudentController(studentRepo.Object, _mapper);
+            var mappedStudent = _mapper.Map<CreateStudentDto, Student>(student);
+            //Act
+            var result = sut.CreateStudent(student);
+            //Assert
+            studentRepo.Verify(x => x.AddStudent(mappedStudent), Times.Exactly(1));
+        }
+
+ 
     }
 }
