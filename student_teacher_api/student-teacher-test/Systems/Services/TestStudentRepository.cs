@@ -53,6 +53,23 @@ namespace student_teacher_test.Systems.Services
             _context.Students.Count().Should().Be(expected);
         }
 
+        [Fact]
+        public async Task AddNewStudent_ShouldReturnTrue()
+        {
+            //Arrange
+            _context.Students.AddRange(StudentMockData.GetAllStudents());
+            _context.SaveChanges();
+
+            var newStudent = StudentMockData.AddStudentEntity();
+            var sut = new StudentRepository(_context);
+
+            //Act
+            var response = await sut.AddStudent(newStudent);
+
+            //Assert
+            response.Should().BeTrue();
+        }
+
 
         [Theory]
         [InlineData("3564-ace5637")]

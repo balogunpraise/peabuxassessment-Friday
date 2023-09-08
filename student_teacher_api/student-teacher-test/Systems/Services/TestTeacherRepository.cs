@@ -52,6 +52,24 @@ namespace student_teacher_test.Systems.Services
         }
 
 
+        [Fact]
+        public async Task AddNewTeacher_ShouldReturnTrue()
+        {
+            //Arrange
+            _context.Teachers.AddRange(TeacherMockData.GetTeachers());
+            _context.SaveChanges();
+
+            var newTeacher = TeacherMockData.AddTeacherEntity();
+            var sut = new TeacherRepository(_context);
+
+            //Act
+            var response = await sut.AddTeacher(newTeacher);
+
+            //Assert
+            response.Should().BeTrue();
+        }
+
+
         [Theory]
         [InlineData("3564-ace5637")]
         public async Task GetTeacherById_ShouldProvideTheTeacherIfAvailable(string id)
