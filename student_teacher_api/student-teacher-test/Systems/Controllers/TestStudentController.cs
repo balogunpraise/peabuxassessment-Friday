@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using Core.Dtos;
-using Core.Entities;
 using Core.Interfaces;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;

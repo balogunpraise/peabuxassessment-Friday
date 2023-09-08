@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Core.Entities;
+using FluentAssertions;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -87,6 +88,24 @@ namespace student_teacher_test.Systems.Services
             //Assert
             student.Should().NotBeNull();
         }
+
+        [Theory]
+        [InlineData("3564-ace5637")]
+        public async Task GetStudentById_ShouldReturnATypeOfStudent(string id)
+        {
+            //Arrange
+            _context.Students.AddRange(StudentMockData.GetAllStudents());
+            _context.SaveChanges();
+            var newStudent = StudentMockData.AddStudentEntity();
+            var sut = new StudentRepository(_context);
+
+            //Act
+            var student = await sut.GetStudentById(id);
+
+            //Assert
+            student.GetType().Should().Be(typeof(Student));
+        }
+
 
 
         [Theory]
