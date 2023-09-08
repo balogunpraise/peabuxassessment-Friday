@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D19E2D66-89B9-4948-9C05-4C796F811445}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "student-teacher-test", "student-teacher-test\student-teacher-test.csproj", "{CAB596E5-39CC-411E-9256-C9F65127C617}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,9 +31,16 @@ Global
 		{EFE0B75E-040F-430B-8B79-4AE6C55B0415}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFE0B75E-040F-430B-8B79-4AE6C55B0415}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFE0B75E-040F-430B-8B79-4AE6C55B0415}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAB596E5-39CC-411E-9256-C9F65127C617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAB596E5-39CC-411E-9256-C9F65127C617}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAB596E5-39CC-411E-9256-C9F65127C617}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAB596E5-39CC-411E-9256-C9F65127C617}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CAB596E5-39CC-411E-9256-C9F65127C617} = {D19E2D66-89B9-4948-9C05-4C796F811445}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6ADFC444-9691-484E-BC0E-AF0F5B860EC1}
