@@ -58,5 +58,8 @@ namespace student_teacher_test.Systems.Controllers
             result.GetType().Should().Be(typeof(OkObjectResult));
             (result as OkObjectResult).StatusCode.Should().Be(200);
         }
+
+
+        
     }
 }

@@ -34,7 +34,7 @@ namespace student_teacher_test.Systems.Services
         }
 
         [Fact]
-        public async Task AddNewTeacher()
+        public async Task AddNewTeacher_ShouldAddSuccessfully()
         {
             //Arrange
             _context.Teachers.AddRange(TeacherMockData.GetTeachers());
@@ -49,6 +49,25 @@ namespace student_teacher_test.Systems.Services
             //Assert
             int expected = TeacherMockData.GetTeachers().Count() + 1;
             _context.Teachers.Count().Should().Be(expected);
+        }
+
+
+        [Theory]
+        [InlineData("3564-ace5637")]
+        public async Task GetTeacherById_ShouldProvideTheTeacherIfAvailable(string id)
+        {
+            //Arrange
+            _context.Teachers.AddRange(TeacherMockData.GetTeachers());
+            _context.SaveChanges();
+
+            var newTeacher = TeacherMockData.AddTeacherEntity();
+            var sut = new TeacherRepository(_context);
+
+            //Act
+            var teacher = await sut.GetTeacherById(id);
+
+            //Assert
+            teacher.Should().NotBeNull();
         }
 
         public void Dispose()
