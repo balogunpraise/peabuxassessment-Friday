@@ -70,6 +70,24 @@ namespace student_teacher_test.Systems.Services
             teacher.Should().NotBeNull();
         }
 
+        [Theory]
+        [InlineData("3564-ace5637")]
+        public async Task DeleteTeacher_ShouldDeleteSuccessfully(string id)
+        {
+            //Arrange
+            _context.Teachers.AddRange(TeacherMockData.GetTeachers());
+            _context.SaveChanges();
+
+            var newTeacher = TeacherMockData.AddTeacherEntity();
+            var sut = new TeacherRepository(_context);
+
+            //Act
+            var isDeleted = await sut.DeleteTeacher(id);
+
+            //Assert
+            isDeleted.Should().BeTrue();
+        }
+
         public void Dispose()
         {
             _context.Database.EnsureDeleted();
