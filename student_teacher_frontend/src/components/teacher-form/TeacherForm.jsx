@@ -112,6 +112,7 @@ const TeacherForm = ({ isopend }) => {
 								<label style={{ color: 'black' }}>Date of Birth</label>
 								<input
 									type='date'
+									max='2002-01-01'
 									onChange={(e) => setDobstring(e.target.value)}
 									placeholder='Date product was recieved'
 									required
