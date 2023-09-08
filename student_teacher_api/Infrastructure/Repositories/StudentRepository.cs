@@ -12,12 +12,10 @@ namespace Infrastructure.Repositories
     public class StudentRepository : IStudentRepository
     {
         private readonly RepositoryContext _context;
-        private readonly ILogger<RepositoryContext> _logger;
 
-        public StudentRepository(RepositoryContext context, ILogger<RepositoryContext> logger)
+        public StudentRepository(RepositoryContext context)
         {
             _context = context;
-            _logger = logger;
         }
         public async Task<bool> AddStudent(Student student)
         {
