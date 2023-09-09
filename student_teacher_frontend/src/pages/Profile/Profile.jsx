@@ -4,7 +4,7 @@ import axios from '../../api/axios'
 import './profilec.css'
 import pic from '../../asset/av.avif'
 import CustomButton from '../../components/custom-button/CustomButton'
-import { SecurityUpdate } from '@mui/icons-material'
+
 
 
 const Profile = () => {
@@ -75,7 +75,7 @@ const Profile = () => {
 					<label>Student Number</label>
 					<input
 						type='text'
-						onChange={(e) => SecurityUpdate({...updateDetails, studentNumber: e.target.value})}
+						onChange={(e) => setUpdateDetails({...updateDetails, studentNumber: e.target.value})}
 						placeholder={student.studentNumber} />
 				</div>
 				<div className='formControl'>
