@@ -19,12 +19,26 @@
     height: 100%;
     flex: 1;
     background: #fff;
+    padding: 20px;
 }
 
+.formControl{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.formControl input{
+    height: 45px;
+    padding: 0 10px;
+    outline: none;
+}
 
 @media (max-width: 800px){
     .profile{
         flex-direction: column;
+    }
+    .left{
+        display: none;
     }
 }
 
