@@ -28,16 +28,18 @@ const Profile = () => {
 					alt=''
 					style={{ width: '100px', height: '100px', borderRadius: '50%' }}
 				/>
-				<h3 style={{ color: '#e3e3e3' }}>
+				<h1 style={{ color: '#e3e3e3' }}>
 					{student.name} {student.surname}
-				</h3>
-				<div className='other-details'>
-					<p>{student.dob}</p>
-					<p>{student.studentNumber}</p>
-					<p>
+				</h1>
+				<div className='other-details' style={{display: 'flex', flexDirection: 'column',
+				justifyContent: 'center',
+				alignItems: 'center'
+			}}>
+					<h3>{student.studentNumber}</h3>
+					<h3>
 						Age: {Math.floor(Math.abs(Date.now() - new Date(student.dob)) / (1000
 							* 3600 * 24 * 360))}
-					</p>
+					</h3>
 				</div>
 			</div>
 

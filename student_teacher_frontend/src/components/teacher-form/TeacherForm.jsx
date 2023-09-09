@@ -10,7 +10,7 @@ const TeacherForm = ({ isopend }) => {
 	const [surname, setSurname] = useState('')
 	const [nationalIdNumber, setNationalIdNumber] = useState('')
 	const [teacherNumber, setTeacherNumber] = useState('')
-	const [title, setTitle] = useState(0)
+	const [title, setTitle] = useState(1)
 	const [salary, setSalary] = useState(0)
 	const [dobstring, setDobstring] = useState('')
 	const dob = new Date(dobstring)
@@ -21,7 +21,7 @@ const TeacherForm = ({ isopend }) => {
 
 	const handleSubmitTeacher = async (e) => {
 		console.log(title)
-		//e.preventDefault()
+		e.preventDefault()
 		try {
 			const response = await axios.post(
 				POST_TEACHER_URL,
@@ -103,7 +103,7 @@ const TeacherForm = ({ isopend }) => {
 								<select
 									value={title}
 									onChange={handleSelected}
-									className='select-input'
+									// className='select-input'
 								>
 									{titleOpt.map((opt) => (
 										<option key={opt.value} value={opt.value}>
