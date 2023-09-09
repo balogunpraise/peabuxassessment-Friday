@@ -32,22 +32,26 @@ const Student = () => {
 				<CustomButton title='Add new student' action={handlerSubmit} />
 			</div>
 			<StudentForm isopend={formOpened} />
-      <div className='card-container'>
-        {data.length === 0 ? <h2 style={{ color: "teal", textAlign: "center", marginTop: "30px" }}>
-          No students yet</h2>
-          :
-          data.map((item) => (
-					<Card
-						key={item.id}
-						id={item.id}
-						name={item.name}
-						surname={item.surname}
-						identity={item.nationalIdNumber}
-						number={item.teacherNumber}
-						dob={item.dob}
-						route={GET_STUDENT}
-					/>
-				))}
+			<div className='card-container'>
+				{data.length === 0 ? (
+					<h2 style={{ color: 'teal', textAlign: 'center', marginTop: '30px' }}>
+						No students yet...
+					</h2>
+				) : (
+					data.map((item) => (
+						<Card
+							key={item.id}
+							id={item.id}
+							name={item.name}
+							surname={item.surname}
+							identity={item.nationalIdNumber}
+							number={item.teacherNumber}
+							dob={item.dob.split('T')[0]}
+							route={GET_STUDENT}
+							cardroute="/student"
+						/>
+					))
+				)}
 			</div>
 		</div>
 	)
