@@ -26,7 +26,7 @@ const Teacher = () => {
 
 	useEffect(() => {
 		getData()
-	}, [first])
+	},[])
 
 	return (
 		<div className='teacher'>

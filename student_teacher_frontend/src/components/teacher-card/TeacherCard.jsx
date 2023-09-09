@@ -1,6 +1,6 @@
 import axios from '../../api/axios'
 import '../card/card.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaTrash, FaEdit } from 'react-icons/fa'
 
 const TeacherCard = ({
@@ -13,10 +13,14 @@ const TeacherCard = ({
 	route,
 }) => {
 	const DELETE_ROUTE = route
+	const navigate = useNavigate()
 	const handleDelete = async () => {
 		try {
 			console.log(id)
 			const response = await axios.delete(`${DELETE_ROUTE}/${id}`)
+			.then(res => {
+				navigate('/teacher')
+			})
 			console(response.data.data)
 		} catch (err) {
 			console.log(err)

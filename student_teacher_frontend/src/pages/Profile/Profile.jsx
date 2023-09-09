@@ -25,8 +25,9 @@ const Profile = () => {
 	async function editAction() {
 		await axios.put(`${UPDATE_STUDENT_ROUTE}/${id}`, updateDetails)
 			.then(res => {
-			navigate('/')
+			navigate(`/student/${id}`)
 		})
+		getProfile()
 	}
 
 	useEffect(() => {

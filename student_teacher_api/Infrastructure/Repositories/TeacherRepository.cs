@@ -66,6 +66,7 @@ namespace Infrastructure.Repositories
                 teacherToUpdate.NationalIdNumber = teacher.NationalIdNumber ?? teacherToUpdate.NationalIdNumber;
                 teacherToUpdate.Salary = teacher.Salary == 0 ? teacherToUpdate.Salary : teacher.Salary;
                 teacherToUpdate.UpdatedAt = DateTimeOffset.UtcNow;
+                teacherToUpdate.DOB = teacherToUpdate.DOB;
                 await _context.SaveChangesAsync();
                 return true;
             }

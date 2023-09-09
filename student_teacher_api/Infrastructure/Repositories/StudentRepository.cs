@@ -64,6 +64,7 @@ namespace Infrastructure.Repositories
                 studentToUpdate.StudentNumber = student.StudentNumber ?? studentToUpdate.StudentNumber;
                 studentToUpdate.NationalIdNumber = student.NationalIdNumber ?? studentToUpdate.NationalIdNumber;
                 studentToUpdate.UpdatedAt = DateTimeOffset.UtcNow;
+                studentToUpdate.DOB = studentToUpdate.DOB;
                 await _context.SaveChangesAsync();
                 return true;
             }
