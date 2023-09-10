@@ -2,10 +2,12 @@ import { useState } from 'react'
 import './teacherform.css'
 import SubmitButton from '../submit-button/SubmitButton'
 import axios from '../../api/axios'
+import { useNavigate } from 'react-router-dom'
 
 const TeacherForm = ({ isopend }) => {
 	const POST_TEACHER_URL = 'teacher/teacher'
 	//student-form details
+	const navigate = useNavigate()
 	const [name, setName] = useState('')
 	const [surname, setSurname] = useState('')
 	const [nationalIdNumber, setNationalIdNumber] = useState('')
@@ -39,6 +41,7 @@ const TeacherForm = ({ isopend }) => {
 					withCredentials: false,
 				}
 			)
+			navigate('/')
 			console.log(JSON.stringify(response))
 		} catch (err) {}
 	}
