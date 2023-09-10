@@ -83,7 +83,7 @@ const TeacherProfile = () => {
 						placeholder={teacher.nationalIdNumber} />
 				</div>
 				<div className='formControl'>
-					<CustomButton title="Edit Student" action={editAction}/>
+					<CustomButton title="Edit teacher" action={editAction}/>
 				</div>
 			</div>
 		</div>
