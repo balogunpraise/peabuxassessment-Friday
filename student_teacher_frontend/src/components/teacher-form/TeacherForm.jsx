@@ -21,7 +21,7 @@ const TeacherForm = ({ isopend }) => {
 
 	const handleSubmitTeacher = async (e) => {
 		console.log(title)
-		e.preventDefault()
+		//e.preventDefault()
 		try {
 			const response = await axios.post(
 				POST_TEACHER_URL,
