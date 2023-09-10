@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import './studentfom.css'
 import SubmitButton from '../submit-button/SubmitButton'
 import axios from '../../api/axios'
+import { useNavigate } from 'react-router-dom'
 
 
 const StudentForm = ({isopend}) => {
   const toggle = isopend ? "open" : "close"
-
+  const navigate = useNavigate()
   const POST_STUDENT_URL = "student/student"
   //student-form details
   const [name, setName] = useState('')
@@ -28,7 +29,8 @@ const StudentForm = ({isopend}) => {
           headers: {"Content-Type" : "application/json"},
           withCredentials: false
         });
-        console.log(JSON.stringify(response))
+		console.log(JSON.stringify(response))
+		navigate('/student')
     }
     catch(err){
       
