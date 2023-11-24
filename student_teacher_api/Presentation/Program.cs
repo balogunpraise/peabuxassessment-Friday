@@ -16,7 +16,7 @@ builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddDbContext<RepositoryContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("ApplicationConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ApplicationConnection"));
 });
 builder.Services.AddCors(option =>
 {
